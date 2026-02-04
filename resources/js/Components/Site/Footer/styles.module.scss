@@ -1,0 +1,34 @@
+.logoImg {
+    height: 150px;
+}
+
+.footerContainer {
+    position: relative;
+    //width: 90%;
+    padding: 16px;
+    //border-radius: 53px !important;
+    //background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(36,36,36,1) 100%);
+    //margin: auto auto 32px;
+    //background: linear-gradient(180deg, rgba(0,0,0,0.10407913165266103) 0%, rgba(0,150,136,1) 100%);
+
+}
+
+.bgImage {
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-image: url("../../../images/logo.png");
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: top center;
+        filter: grayscale(100%);
+        opacity: 0.1;
+    }
+}

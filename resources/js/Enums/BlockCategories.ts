@@ -1,0 +1,38 @@
+enum BlockCategories {
+    WEBSITE = "Website",
+    REAL_ESTATE = "Real Estate",
+    MAIN_SECTION = "Main Section",
+    ABOUT = "About Us",
+    TURN_OUR_VISION_INTO_VALUE = "Turn Our Vision Into Value",
+    OUR_STORY = "Our Story",
+    OUR_MISSION = "Our Mission",
+    OUR_VISION = "Our Vision",
+    OUR_CREATIVE_TALENTS = "Our Creative Talents",
+    OUR_BOARD_OF_DIRECTORS = "Our Board Of Directors",
+    PROJECTS = "Projects",
+    CONTACT = "Contact",
+    DEVELOPERS = "Developers",
+    COMMUNITIES = "Communities",
+    SELL = "Sell",
+    RENT = "Rent",
+    NEW_LUNCH = "New Lunch",
+    CITY = "Cities",
+    PROJECT = "Projects",
+    PROPERTY = "Properties",
+    AGENT = "Agents",
+    PROPERTY_FEATURE = "Property Feature",
+
+    PRIVACY = "Privacy Policy",
+    CONDITION = "Conditions And Terms",
+    CAREER = "Careers",
+    TAG = "Tag",
+    TRIP = "Trip",
+    TOURISM = "Tourism",
+    APPOINTMENT = "Appointment",
+    PACKAGE = "Package",
+    CALENDAR = "Calendar",
+
+    BLOG = "Blog",
+}
+
+export default BlockCategories;

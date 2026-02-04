@@ -1,0 +1,122 @@
+@import "../../../../scss/variables";
+
+.divider {
+    background-color: transparent;
+    background-image: linear-gradient(
+            180deg,
+            hsla(0,0%,8%,0) 0,
+            hsla(0,0%,8%,.15) 15%,
+            hsla(0,0%,8%,.35) 29%,
+            hsla(0,0%,8%,.58) 44%,
+            var(--shadow) 68%,
+            var(--shadow)
+    );
+    background-position: 0 top;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    bottom: -1px;
+    height: 16.7vw;
+    opacity: 1;
+    top: auto;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 8;
+}
+
+.clientDivider {
+    background-color: transparent;
+    background-image: linear-gradient(
+            180deg,
+            var(--shadow),
+            var(--shadow) 15%,
+            var(--shadow) 29%,
+            var(--shadow) 44%,
+            var(--shadow-1) 68%,
+            var(--shadow-1)
+    );
+    background-position: 0 top;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    bottom: -1px;
+    height: 16.7vw;
+    opacity: 1;
+    top: auto;
+    width: 100%;
+    left: 0;
+    position: relative;
+    right: 0;
+    z-index: 8;
+}
+
+.lineDivider {
+    position: relative;
+    //visibility: hidden;
+    &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: var(--shadow-1);
+        z-index: 0;
+        border-radius: 1px;
+        clip-path: ellipse(50% 50% at 50% 50%);
+    }
+
+    //&:after {
+    //    position: absolute;
+    //    content: "";
+    //    width: 15px;
+    //    height: 5px;
+    //    border-radius: 100%;
+    //    background-color: var(--shadow);
+    //    background-image: url("../../../images/logo-1.png");
+    //    background-position: center top;
+    //    background-repeat: no-repeat;
+    //    background-size: cover;
+    //    //clip-path: ellipse(50% 50% at 50% 50%);
+    //    z-index: 1;
+    //    top: 0;
+    //    left: 0%;
+    //    box-shadow: var(--line-separator-shadow);
+    //    -webkit-box-shadow: var(--line-separator-shadow);
+    //    -moz-box-shadow: var(--line-separator-shadow);
+    //}
+}
+
+.lineDividerReverse {
+    position: relative;
+    //visibility: hidden;
+    &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: var(--shadow-1);
+        z-index: 0;
+        border-radius: 1px;
+        clip-path: ellipse(50% 50% at 50% 50%);
+    }
+
+    //&:after {
+    //    position: absolute;
+    //    content: "";
+    //    width: 15px;
+    //    height: 5px;
+    //    border-radius: 100%;
+    //    background-color: var(--shadow);
+    //    background-image: url("../../../images/logo-1.png");
+    //    background-position: center top;
+    //    background-repeat: no-repeat;
+    //    background-size: cover;
+    //    //clip-path: ellipse(50% 50% at 50% 50%);
+    //    z-index: 1;
+    //    top: 0;
+    //    right: 0%;
+    //    box-shadow: var(--line-separator-shadow);
+    //    -webkit-box-shadow: var(--line-separator-shadow);
+    //    -moz-box-shadow: var(--line-separator-shadow);
+    //}
+}
+

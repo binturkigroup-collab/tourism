@@ -1,0 +1,1 @@
+const a="_addMargin_1u4cl_1",o="_removeMargin_1u4cl_5",d="_showSidebar_1u4cl_9",e="_hideSidebar_1u4cl_16",r="_boxShadow_1u4cl_23",i={addMargin:a,removeMargin:o,showSidebar:d,hideSidebar:e,boxShadow:r};export{i as s};

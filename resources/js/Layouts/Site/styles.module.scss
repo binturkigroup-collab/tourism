@@ -1,0 +1,24 @@
+.minHeight {
+    min-height: 500px;
+}
+
+.marginTop {
+    margin-top: 80px;
+    @media screen and (max-width: 1024px) {
+        margin-top: 64px;
+    }
+}
+
+.whatsIcon {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 3000;
+}
+
+.whatsIconUpper {
+    position: fixed;
+    bottom: 100px;
+    right: 32px;
+    z-index: 3000;
+}

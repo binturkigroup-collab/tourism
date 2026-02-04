@@ -1,0 +1,352 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "variables";
+//@import "site";
+
+
+:root {
+    --clr-bg-dark: #1f2937; /* gray-800 */
+    --clr-bg-light: #d4d4d4; /* zinc-50 */
+
+    --clr-text-dark: #374151; /* gray-200 */
+    --clr-text-light: #fafafa; /* zinc-50 */
+
+    --clr-bg-content-dark: #334155;
+    --clr-bg-content-light: #fafaf9;
+
+    --clr-bg-grid-dark: #0f172a;
+    --clr-bg-grid-light: #e2e8f0;
+    //--ring: 262, 83%, 58%;
+
+
+    [type='text']:focus, input:where(:not([type])):focus, [type='email']:focus,
+    [type='url']:focus, [type='password']:focus, [type='number']:focus,
+    [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus,
+    [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus,
+    [multiple]:focus, textarea:focus, select:focus {
+        box-shadow: none !important;
+        border-color: hsl(var(--ring));
+        border-width: 2px;
+    }
+
+//    Site:
+    --clr-site-bg-dark: #17222D;
+    --clr-site-bg-right: #fff;
+
+    --clr-site-text-dark: #17222D;
+    --clr-site-text-light: #fff;
+
+    --clr-site-bg-content-dark: #17222D;
+    --clr-site-bg-content-light: #fff;
+}
+
+body {
+    //background-color: $bgColor;
+    line-height: 2;
+}
+
+.dark {
+
+    background-color: var(--clr-bg-dark);
+    color: var(--clr-text-light);
+    .content {
+        background-color: var(--clr-bg-content-dark);
+    }
+}
+
+.light {
+    background-color: var(--clr-bg-light);
+    color: var(--clr-text-dark);
+    .content {
+        background-color: var(--clr-bg-content-light);
+    }
+}
+
+.content {
+    min-height: 100vh;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.add-btn {
+    background-color: #1da1f2;
+    color: white;
+}
+
+.update-btn {
+    background-color: #9c27a0;
+    color: white;
+}
+
+.display-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+//============================================================
+//=========================SITE===============================
+
+.site-dark {
+    --shadow: var(--clr-site-bg-dark);
+    --shadow-1: var(--clr-site-bg-right);
+    --line-separator-shadow: -5px -5px 159px 63px rgba(255,255,255,0.75);
+    background-color: var(--clr-site-bg-dark);
+    color: var(--clr-site-text-light);
+    .content {
+        background-color: var(--clr-site-bg-content-dark);
+    }
+}
+
+.site-light {
+    --shadow: var(--clr-site-bg-right);
+    --shadow-1: var(--clr-site-bg-dark);
+    --line-separator-shadow: -5px -5px 159px 63px rgba(0,0,0,0.75);
+    background-color: var(--clr-site-bg-light);
+    color: var(--clr-site-text-dark);
+    .content {
+        background-color: var(--clr-site-bg-content-light);
+    }
+}
+
+.register-paper {
+    position: relative;
+    //max-width: 350px;
+    //top: 50%;
+    width: 100%;
+    margin-top: 120px;
+    //left: 50%;
+    //transform: translate(-50%);
+    @media screen and (min-width: 800px) {
+        width: 70%;
+    }
+    @media screen and (max-width: 350px) {
+        width: 100%;
+    }
+}
+
+.displayLg {
+    display: none;
+    @media screen and (min-width: $lgScreen) {
+        display: block;
+    }
+}
+
+.displayMd {
+    display: none;
+    @media screen and (max-width: $smScreen) {
+        display: block;
+    }
+}
+
+.iconColor {
+    color: $iconColor !important;
+}
+
+.styled-list {
+    ul, ol {
+        list-style: unset;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    ul {
+        list-style: disc;
+    }
+}
+
+//============================================================
+//Scrollbar:
+.class {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.class::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.container {
+    width: inherit !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+    :root {
+        /* Portfolio Design System - Modern Dark Theme */
+        --background: #FFFFFF;
+        --foreground: #17222D;
+
+        --card: 210 32% 13%;
+        --card-foreground: 0 0% 98%;
+
+        --popover: var(--background);
+        --popover-foreground: 210 32% 13%;
+
+        --primary: 210 32% 13%;
+        --primary-foreground: 0 0% 98%;
+        --primary-glow: 262 83% 70%;
+
+        --secondary: 40 32% 55%;
+        --secondary-foreground: 0 0% 98%;
+
+        --muted: 240 5% 12%;
+        --muted-foreground: 210 10% 45%;
+
+        --accent: 40 10% 96%;
+        --accent-foreground: 240 10% 3.9%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 210 12% 90%;
+        --input: 240 5% 12%;
+        --ring: 40 32% 55%;
+
+        --radius: 0.75rem;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+        --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(240 8% 6%));
+        --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(199 95% 84%));
+
+        /* Shadows */
+        --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+        --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+        --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+
+        /* Animations */
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        --sidebar-background: 240 8% 6%;
+        --sidebar-foreground: 0 0% 98%;
+        --sidebar-primary: 262 83% 58%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 5% 12%;
+        --sidebar-accent-foreground: 0 0% 98%;
+        --sidebar-border: 240 5% 12%;
+        --sidebar-ring: 262 83% 58%;
+    }
+
+    .dark {
+        /* Dark mode uses same values as our main theme */
+        --background: var(--clr-bg-dark);
+        --foreground: 0 0% 98%;
+        --card: var(--clr-bg-dark);
+        --card-foreground: 0 0% 98%;
+        --popover: 240 8% 6%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 262 83% 58%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 240 5% 12%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 5% 12%;
+        --muted-foreground: 240 5% 65%;
+        --accent: 199 95% 74%;
+        --accent-foreground: 240 10% 3.9%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 5% 12%;
+        --input: 240 5% 12%;
+        --ring: 262 83% 58%;
+        --sidebar-background: 240 8% 6%;
+        --sidebar-foreground: 0 0% 98%;
+        --sidebar-primary: 262 83% 58%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 5% 12%;
+        --sidebar-accent-foreground: 0 0% 98%;
+        --sidebar-border: 240 5% 12%;
+        --sidebar-ring: 262 83% 58%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    .animate-fade-in {
+        animation: fadeIn 1s ease-out;
+    }
+
+    .animate-fade-in-delay {
+        animation: fadeIn 1s ease-out 0.3s both;
+    }
+
+    .animate-fade-in-delay-2 {
+        animation: fadeIn 1s ease-out 0.6s both;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Common styles ---------- */
+.PhoneInputInput {
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--input-color);
+}
+
+.PhoneInputCountrySelect {
+    background: var(--dropdown-bg);
+    color: var(--dropdown-color);
+    border: 1px solid var(--border-color);
+}
+
+/* ---------- Light Theme ---------- */
+.light {
+    --input-bg: var(--clr-text-light);
+    --input-color: #111;
+    --border-color: #ccc;
+    --dropdown-bg: var(--clr-text-light);
+    --dropdown-color: #111;
+}
+
+/* ---------- Dark Theme ---------- */
+.dark {
+    --input-bg: var(--clr-text-dark);
+    --input-color: #f5f5f5;
+    --border-color: #444;
+    --dropdown-bg: var(--clr-text-dark);
+    --dropdown-color: #fff;
+}
+
+.PhoneInputCountrySelect li:hover {
+    background: var(--border-color);
+}
+

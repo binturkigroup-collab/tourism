@@ -1,0 +1,57 @@
+@import "../../../../scss/variables";
+
+.container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100px;
+}
+.bgImg {
+    margin: 0;
+    padding: 0;
+    background-size: contain; /* Display the entire image within the fixed height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    height: 100%; /* Set the height to 100% of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Establish positioning context for absolute positioning */
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../../images/logo-bg.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1; /* Place the background image behind other content */
+    }
+}
+
+.overlayImage {
+    position: relative;
+    z-index: 1; /* Place the overlay image above the background image */
+
+    img {
+        width: 100%; /* Make sure the overlay image covers the entire container */
+        height: 100px;
+        object-fit: cover;
+    }
+}
+
+.logoImg {
+    //padding: 8px;
+    @media screen and (max-width: $smScreen) {
+        height: 60px;
+    }
+
+    @media screen and (min-width: $lgScreen) {
+        height: 64px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,1 @@
+import{a6 as n,a7 as p}from"./app-DiW-XT2R.js";var c=Object.getOwnPropertyDescriptor,m=(e,a,l,s)=>{for(var r=s>1?void 0:s?c(a,l):a,t=e.length-1,o;t>=0;t--)(o=e[t])&&(r=o(r)||r);return r};let i=class{constructor(){this.sendEmail=e=>n.post("/send-email",e,{headers:{"Content-Type":"multipart/form-data"}})}};i=m([p()],i);export{i as E};

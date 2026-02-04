@@ -1,0 +1,26 @@
+.paper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+}
+
+.mapContainer {
+    height: 35vh;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.markerContainer {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    &.hover {
+        z-index: 2;
+    }
+}
+.pointer {
+    cursor: pointer;
+}

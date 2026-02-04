@@ -1,0 +1,17 @@
+@import "../../../scss/variables";
+.inputStyle {
+    color: $iconColor !important;
+    &:before {
+        border-bottom: 1px solid $iconColor !important;
+    }
+
+    &:hover {
+        &:before {
+            border-bottom: 1px solid $iconColor !important;
+        }
+    }
+}
+
+.iconColor {
+    color: $iconColor;
+}
