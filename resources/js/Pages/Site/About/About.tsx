@@ -21,7 +21,7 @@ const About: React.FC<{story: BlockProps [], mission: BlockProps [], vision: Blo
                 {/*    structuredData={[...story, ...mission, ...vision]}*/}
                 {/*/>*/}
             </Head>
-            <HeroSection />
+            {/*<HeroSection />*/}
             {story.length > 0 && <StorySection story={story[0]}></StorySection>}
 
             {/*<BoardA directors={directors}/>*/}

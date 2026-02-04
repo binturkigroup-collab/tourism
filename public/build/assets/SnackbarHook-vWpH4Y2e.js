@@ -1,0 +1,1 @@
+import{r as o}from"./app-C3wK80uY.js";const u=n=>{const[t,e]=o.useState({open:!1,message:"",severity:"success"});return{snackbar:t,setSnackbar:e,handleClose:(r,s)=>{if(s==="clickaway"||s==="timeout"||s==="escapeKeyDown"){e(a=>({...a,open:!1,message:""}));return}e(a=>({...a,open:!1,message:""}))}}};export{u};

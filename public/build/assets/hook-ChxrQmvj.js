@@ -1,1 +1,0 @@
-import{p as e,q as n,t as c,v as a}from"./app-DiW-XT2R.js";function r(t=e){const o=t===e?n:c(t);return function(){const{store:s}=o();return s}}const p=r();function i(t=e){const o=t===e?p:r(t);return function(){return o().dispatch}}const x=i(),d=x,f=a;export{d as a,f as u};
