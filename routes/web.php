@@ -63,17 +63,17 @@ Route::middleware([Language::class, LinksMiddleware::class])->group(function () 
     Route::get('/about-us', [AboutController::class, 'index'])->name('about-us');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact-us');
 
-    Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
-    Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');
+//    Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+//    Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');
 
-    Route::get('/properties', [PropertyController::class, 'index'])->name('properties');
-    Route::get('/properties/{slug}', [PropertyController::class, 'show'])->name('properties.show');
-
-    Route::get('/communities', [CommunityController::class, 'index'])->name('communities');
-    Route::get('/communities/{slug}', [CommunityController::class, 'show'])->name('communities.show');
-
-    Route::get('/developers', [DeveloperController::class, 'index'])->name('developers');
-    Route::get('/developers/{slug}', [DeveloperController::class, 'show'])->name('developers.show');
+//    Route::get('/properties', [PropertyController::class, 'index'])->name('properties');
+//    Route::get('/properties/{slug}', [PropertyController::class, 'show'])->name('properties.show');
+//
+//    Route::get('/communities', [CommunityController::class, 'index'])->name('communities');
+//    Route::get('/communities/{slug}', [CommunityController::class, 'show'])->name('communities.show');
+//
+//    Route::get('/developers', [DeveloperController::class, 'index'])->name('developers');
+//    Route::get('/developers/{slug}', [DeveloperController::class, 'show'])->name('developers.show');
 
     Route::get('/careers', [CareerController::class, 'index'])->name('careers');
     Route::get('/conditions-and-terms', [ConditionController::class, 'index'])->name('conditions-and-terms');
@@ -104,12 +104,10 @@ Route::get('/test', function () {
     ]);
 });
 
-//Route::get('/html-sitemap', [SitemapController::class, 'html']);
 Route::get('/sitemap.xml', [SitemapXMLController::class, 'index']);
-Route::get('/sitemap-projects.xml', [SitemapXMLController::class, 'projects']);
-Route::get('/sitemap-properties.xml', [SitemapXMLController::class, 'properties']);
-Route::get('/sitemap-communities.xml', [SitemapXMLController::class, 'communities']);
-Route::get('/sitemap-developers.xml', [SitemapXMLController::class, 'developers']);
+Route::get('/sitemap-trips.xml', [SitemapXMLController::class, 'trips']);
+Route::get('/sitemap-packages.xml', [SitemapXMLController::class, 'packages']);
+Route::get('/sitemap-blogs.xml', [SitemapXMLController::class, 'blogs']);
 Route::get('/sitemap-static.xml', [SitemapXMLController::class, 'staticPages']);
 
 

@@ -23,6 +23,7 @@ import NormalTrips from "@/Pages/Site/Home/Components/NormalTrips";
 import Features from "@/Pages/Site/Home/Components/Features";
 import CtaSection from "@/Pages/Site/Home/Components/CTASection";
 import TripCalendar from "@/Pages/Site/components/TripCalendar";
+import HeroSlider1 from "./Components/HeroSlider/HeroSlider1";
 
 const Home:React.FC<{
     mainSliders: BlockProps [],
@@ -49,7 +50,8 @@ const Home:React.FC<{
             </Head>
 
             <Box>
-                <HeroSlider slides={mainSliders}></HeroSlider>
+                {/*<HeroSlider slides={mainSliders}></HeroSlider>*/}
+                <HeroSlider1 slides={mainSliders}></HeroSlider1>
 
                 <Packages packages={packages}></Packages>
 

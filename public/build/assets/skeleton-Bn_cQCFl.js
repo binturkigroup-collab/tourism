@@ -1,1 +1,0 @@
-import{j as m}from"./app-C3wK80uY.js";import{c as o}from"./utils-CYQ9GeJJ.js";function s({className:e,...t}){return m.jsx("div",{className:o("animate-pulse rounded-md bg-muted",e),...t})}export{s as Skeleton};

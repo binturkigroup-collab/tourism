@@ -1,1 +1,0 @@
-import{j as e}from"./app-C3wK80uY.js";const r=({src:t,alt:a,classes:s})=>(i=>i.toLowerCase().endsWith(".svg"))(t||"")?e.jsx("object",{className:s,data:t||"",type:"image/svg+xml",width:"100%",height:"100%",children:e.jsx("img",{src:t||"",width:"160px",height:"160px",alt:"svg fallback"})}):e.jsx("img",{src:t,alt:a,className:s});export{r as I};

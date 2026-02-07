@@ -21,10 +21,9 @@ class SitemapXMLController extends Controller
     public function index(): Response
     {
         $sitemaps = [
-            url('sitemap-projects.xml'),
-            url('sitemap-properties.xml'),
-            url('sitemap-developers.xml'),
-            url('sitemap-communities.xml'),
+            url('sitemap-trips.xml'),
+            url('sitemap-packages.xml'),
+            url('sitemap-blogs.xml'),
             url('sitemap-static.xml'),
         ];
 
@@ -34,54 +33,99 @@ class SitemapXMLController extends Controller
 //        return view('sitemap.sitemapXML', []);
     }
 
-    public function properties(): Response
+//    public function properties(): Response
+//    {
+//        $items = Property::with(['block.translations'])
+//            ->get()
+//            ->map(fn ($p) => [
+//                'urls'     => $this->localizedUrls('properties.show', $p->block),
+//                'lastmod'  => $this->lastmod($p, $p->block),
+//            ]);
+//
+//        return $this->xmlResponse('sitemap.items', compact('items'));
+//    }
+
+
+//    public function projects(): Response
+//    {
+//        $items = Project::with(['block.translations'])
+//            ->get()
+//            ->map(fn ($p) => [
+//                'urls'     => $this->localizedUrls('projects.show', $p->block),
+//                'lastmod'  => $this->lastmod($p, $p->block),
+//            ]);
+//
+////        return response()->view('sitemap.items', compact('items'))
+////            ->header('Content-Type', 'application/xml');
+//
+//        return $this->xmlResponse('sitemap.items', compact('items'));
+//    }
+
+//    public function developers(): Response
+//    {
+//        $items = Block::where('category', Str::slug(BlockCategoryEnum::DEVELOPERS->value))
+//            ->with('translations')
+//            ->get()
+//            ->map(fn ($b) => [
+//                'urls'     => $this->localizedUrls('developers.show', $b),
+//                'lastmod'  => $b->updated_at->toAtomString(),
+//            ]);
+//
+//        return $this->xmlResponse('sitemap.items', compact('items'));
+//    }
+
+//    public function communities(): Response
+//    {
+//        $items = Block::where('category', Str::slug(BlockCategoryEnum::COMMUNITIES->value))
+//            ->with('translations')
+//            ->get()
+//            ->map(fn ($b) => [
+//                'urls'     => $this->commUrls('properties', $b),
+//                'lastmod'  => $b->updated_at->toAtomString(),
+//            ]);
+//
+//        return $this->xmlResponse('sitemap.items', compact('items'));
+//    }
+
+    public function blogs(): Response
     {
-        $items = Property::with(['block.translations'])
-            ->get()
-            ->map(fn ($p) => [
-                'urls'     => $this->localizedUrls('properties.show', $p->block),
-                'lastmod'  => $this->lastmod($p, $p->block),
-            ]);
-
-        return $this->xmlResponse('sitemap.items', compact('items'));
-    }
-
-
-    public function projects(): Response
-    {
-        $items = Project::with(['block.translations'])
-            ->get()
-            ->map(fn ($p) => [
-                'urls'     => $this->localizedUrls('projects.show', $p->block),
-                'lastmod'  => $this->lastmod($p, $p->block),
-            ]);
-
-//        return response()->view('sitemap.items', compact('items'))
-//            ->header('Content-Type', 'application/xml');
-
-        return $this->xmlResponse('sitemap.items', compact('items'));
-    }
-
-    public function developers(): Response
-    {
-        $items = Block::where('category', Str::slug(BlockCategoryEnum::DEVELOPERS->value))
+        $items = Block::where('category', Str::slug(BlockCategoryEnum::BLOG->value))
             ->with('translations')
             ->get()
             ->map(fn ($b) => [
-                'urls'     => $this->localizedUrls('developers.show', $b),
+                'urls'     => $this->blogUrls('blogs.show', $b),
                 'lastmod'  => $b->updated_at->toAtomString(),
             ]);
 
         return $this->xmlResponse('sitemap.items', compact('items'));
     }
 
-    public function communities(): Response
+    public function trips(): Response
     {
-        $items = Block::where('category', Str::slug(BlockCategoryEnum::COMMUNITIES->value))
-            ->with('translations')
+        $items = Block::where('category', Str::slug(BlockCategoryEnum::TRIP->value))
+            ->with(['translations', 'trip'])
+            ->whereHas('trip', function ($query) {
+                $query->whereNull('package');
+            })
             ->get()
             ->map(fn ($b) => [
-                'urls'     => $this->commUrls('properties', $b),
+                'urls'     => $this->tripUrls('trips.show', $b),
+                'lastmod'  => $b->updated_at->toAtomString(),
+            ]);
+
+        return $this->xmlResponse('sitemap.items', compact('items'));
+    }
+
+    public function packages(): Response
+    {
+        $items = Block::where('category', Str::slug(BlockCategoryEnum::TRIP->value))
+            ->with(['translations', 'trip'])
+            ->whereHas('trip', function ($query) {
+                $query->whereNotNull('package');
+            })
+            ->get()
+            ->map(fn ($b) => [
+                'urls'     => $this->tripUrls('packages.show', $b),
                 'lastmod'  => $b->updated_at->toAtomString(),
             ]);
 
@@ -95,7 +139,7 @@ class SitemapXMLController extends Controller
                 'urls'     => $this->staticUrls('home'),
             ],
             'about' => [
-                'urls'     => $this->staticUrls('about-us',),
+                'urls'     => $this->staticUrls('about-us'),
 //                'lastmod'  => $about->updated_at->toAtomString(),
             ],
 
@@ -119,25 +163,22 @@ class SitemapXMLController extends Controller
 //                'lastmod'  => $privacy->updated_at->toAtomString(),
             ],
 
-            'projects' => [
-                'urls'     => $this->staticUrls('projects'),
+            'trips' => [
+                'urls'     => $this->staticUrls('trips'),
             ],
-            'developers' => [
-                'urls'     => $this->staticUrls('developers'),
+
+            'packages' => [
+                'urls'     => $this->staticUrls('packages'),
             ],
-            'communities' => [
-                'urls'     => $this->staticUrls('communities'),
+
+            'blogs' => [
+                'urls'     => $this->staticUrls('blogs'),
             ],
-            'properties' => [
-                'urls'     => $this->staticUrls('properties'),
+
+            'calendar' => [
+                'urls'     => $this->staticUrls('calendar'),
             ]
         ];
-
-//        foreach ($items as $key => $item) {
-//            foreach ($item['urls'] as $url) {
-//                dd($url);
-//            }
-//        }
 
         return $this->xmlResponse('sitemap.static', compact('items'));
 
@@ -168,21 +209,20 @@ class SitemapXMLController extends Controller
         })->filter()->values();
     }
 
-    private function devUrls($routeName, $block)
+    private function tripUrls($routeName, $block)
     {
         return collect(languages())->map(function($lang) use ($routeName, $block) {
             $translation = $block->translations->where('language', $lang)->first();
             if (!$translation) return null;
 
-//            dd( route($routeName, ['slug' => $translation->slug]) );
             return [
                 'lang' => $lang,
-                'url'  => route($routeName, ['locale' => $lang,  'developerSlug' => $translation->slug]),
+                'url'  => route($routeName, ['locale' => $lang,  'trip' => $translation->slug]),
             ];
         })->filter()->values();
     }
 
-    private function commUrls($routeName, $block)
+    private function blogUrls($routeName, $block)
     {
         return collect(languages())->map(function($lang) use ($routeName, $block) {
             $translation = $block->translations->where('language', $lang)->first();
@@ -190,7 +230,7 @@ class SitemapXMLController extends Controller
 
             return [
                 'lang' => $lang,
-                'url'  => route($routeName, ['locale' => $lang,  'communitySlug' => $translation->slug]),
+                'url'  => route($routeName, ['locale' => $lang,  'slug' => $translation->slug]),
             ];
         })->filter()->values();
     }
