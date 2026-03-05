@@ -1,0 +1,1 @@
+import{j as r}from"./app-45DL4hQF.js";import{Card as e,CardHeader as t,CardTitle as s}from"./card-Sm9dy7jI.js";import"./utils-Cfr7byXy.js";const m=({property:a})=>r.jsx(e,{className:"bg-background",children:r.jsx(t,{children:r.jsx(s,{className:"text-foreground",children:"Features & Amenities"})})});export{m as default};
